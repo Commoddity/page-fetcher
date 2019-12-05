@@ -4,7 +4,7 @@ const readline = require('readline');
 
 const rl = readline.createInterface({
   input: process.stdin,
-  output: process.stdout
+  output: process.stdout,
 });
 
 const pageFetcher = (url, dest) => {
@@ -30,8 +30,14 @@ const pageFetcher = (url, dest) => {
           console.log("Invalid input. Input must be [Y/N]");
         }
       });
+    } else {
+      rl.close();
     }
   });
 };
 
-pageFetcher("http://www.example.com", "./index.html");
+rl.question("Enter page URL to download: ", (pageUrl) => {
+  rl.question("Enter destination file path: ", (destPath) => {
+    pageFetcher(pageUrl, destPath);
+  });
+});
