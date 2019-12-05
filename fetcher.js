@@ -5,7 +5,6 @@ const readline = require('readline');
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
-
 });
 
 const pageFetcher = (url, dest) => {
@@ -38,7 +37,6 @@ const pageFetcher = (url, dest) => {
     });
   });
 };
-
 
 rl.question("Enter page URL to download: ", (pageUrl) => {
   rl.question("Enter destination file path: ", (destPath) => {
